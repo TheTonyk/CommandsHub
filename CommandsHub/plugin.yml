@@ -1,0 +1,30 @@
+name: CommandsHub
+version: 0.1
+author: TheTonyk
+description: Hub Plugin by TheTonyk for CommandsPVP Minecraft Server.
+prefix: Hub
+softdepend: [ProtocolLib, ViaVersion]
+main: com.thetonyk.CommandsHub.Main
+
+commands:
+    clear:
+        description: Clear inventories
+        usage: /clear
+    fly:
+        description: Toggle players in fly
+        usage: /fly
+    gamemode:
+        description: Toggle gamemode
+        usage: /gamemode
+        aliases: [gm]
+    lag:
+        description: About the server
+        usage: /lag
+        aliases: [tps]
+    rank:
+        description: Change ranks of players.
+        usage: /rank
+    whitelist:
+        description: Manage the whitelist
+        usage: /whitelist
+        aliases: [wl, wh]
