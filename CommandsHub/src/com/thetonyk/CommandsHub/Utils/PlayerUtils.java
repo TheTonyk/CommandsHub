@@ -3,7 +3,9 @@ package com.thetonyk.CommandsHub.Utils;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
@@ -19,6 +21,8 @@ import org.bukkit.scoreboard.NameTagVisibility;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.thetonyk.CommandsHub.Main;
 import com.thetonyk.CommandsHub.Listeners.MessengerListener;
 
@@ -548,6 +552,31 @@ public class PlayerUtils {
 			
 		}
 	
+	}
+	
+	public static List<UUID> getIgnoredPlayers (UUID player) {
+		
+		String ignoredPlayers = "";
+		
+		try {
+			
+			Statement sql = DatabaseUtils.getConnection().createStatement();
+			ResultSet req = sql.executeQuery("SELECT ignored FROM settings WHERE id = " + PlayerUtils.getId(player) + ";");
+			
+			if (req.next()) ignoredPlayers = req.getString("ignored");
+			
+			sql.close();
+			req.close();
+			
+		} catch (SQLException exception) {
+			
+			Bukkit.getLogger().severe("[PlayerUtils] Error to get ignored players of player with UUID " + player + ".");
+			
+		}
+		
+		List<UUID> ignored = ignoredPlayers == "" ? new ArrayList<UUID>() : new Gson().fromJson(ignoredPlayers, new TypeToken<List<UUID>>(){}.getType());
+		return ignored;
+		
 	}
 	
 }
