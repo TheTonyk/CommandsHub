@@ -308,7 +308,7 @@ public class PlayerUtils {
 		player.getScoreboard().getObjective("sidebar").getScore(" ").setScore(9);
 		player.getScoreboard().getObjective("sidebar").getScore("§r  §6Hub §8⫸ §a" + MessengerListener.playerCount.get("hub") + " §7players").setScore(8);
 		player.getScoreboard().getObjective("sidebar").getScore("§r  §6Arena 1.8 §8⫸ §a" + MessengerListener.playerCount.get("arena1.8") + " §7players").setScore(7);
-		player.getScoreboard().getObjective("sidebar").getScore("§r  §6Arena 1.9 §8⫸ §a" + MessengerListener.playerCount.get("arena1.9") + " §7players").setScore(6);
+		player.getScoreboard().getObjective("sidebar").getScore("§r  §6Arena 1.9 §8⫸ §a" + /*MessengerListener.playerCount.get("arena1.9") + " §7players"*/ "§7Maintenance").setScore(6);
 		player.getScoreboard().getObjective("sidebar").getScore("  ").setScore(5);
 		player.getScoreboard().getObjective("sidebar").getScore("§r  §6Rank §8⫸ §a" + PlayerUtils.getRank(player.getName()).getName()).setScore(4);
 		player.getScoreboard().getObjective("sidebar").getScore("   ").setScore(3);
@@ -350,7 +350,7 @@ public class PlayerUtils {
 		player.getScoreboard().getObjective("buffer").getScore(" ").setScore(9);
 		player.getScoreboard().getObjective("buffer").getScore("  §6Hub §8⫸ §a" + MessengerListener.playerCount.get("hub") + " §7players").setScore(8);
 		player.getScoreboard().getObjective("buffer").getScore("  §6Arena 1.8 §8⫸ §a" + MessengerListener.playerCount.get("arena1.8") + " §7players").setScore(7);
-		player.getScoreboard().getObjective("buffer").getScore("  §6Arena 1.9 §8⫸ §a" + MessengerListener.playerCount.get("arena1.9") + " §7players").setScore(6);
+		player.getScoreboard().getObjective("buffer").getScore("  §6Arena 1.9 §8⫸ §a" + /*MessengerListener.playerCount.get("arena1.9") + " §7players"*/ "§7Maintenance").setScore(6);
 		player.getScoreboard().getObjective("buffer").getScore("  ").setScore(5);
 		player.getScoreboard().getObjective("buffer").getScore("  §6Rank §8⫸ §a" + PlayerUtils.getRank(player.getName()).getName()).setScore(4);
 		player.getScoreboard().getObjective("buffer").getScore("   ").setScore(3);
