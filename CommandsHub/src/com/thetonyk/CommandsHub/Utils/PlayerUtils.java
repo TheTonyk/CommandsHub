@@ -376,6 +376,11 @@ public class PlayerUtils {
 		item2 = ItemsUtils.hideFlags(item2);
 		player.getInventory().setItem(1, item2);
 		
+		ItemStack item4 = ItemsUtils.createItem(Material.BOW, "§8⫸ §b§lUHC 1 §8(§7Right-Click to join§8) §8⫷", 1, 0);
+		item4 = ItemsUtils.addGlow(item4);
+		item4 = ItemsUtils.hideFlags(item4);
+		player.getInventory().setItem(3, item4);
+		
 		ItemStack item7 = ItemsUtils.createItem(Material.EYE_OF_ENDER, "§8⫸ §d§lFlying Pearl §8(§7Right-Click to launch§8) §8⫷", 1, 0);
 		item7 = ItemsUtils.hideFlags(item7);
 		player.getInventory().setItem(6, item7);

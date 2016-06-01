@@ -141,7 +141,7 @@ public class PlayerListener implements Listener {
 					
 					if (ViaVersion.getInstance().isPorted(event.getPlayer().getUniqueId())) {
 						
-						event.getPlayer().sendMessage("§a§lGlobal §8⫸ §7You can only join this arena in 1.8.");
+						event.getPlayer().sendMessage("§a§lGlobal §8⫸ §7You can only join this server in 1.8.");
 						return;
 						
 					}
@@ -176,7 +176,7 @@ public class PlayerListener implements Listener {
 					
 					if (!ViaVersion.getInstance().isPorted(event.getPlayer().getUniqueId())) {
 						
-						event.getPlayer().sendMessage("§a§lGlobal §8⫸ §7You can only join this arena in 1.9.");
+						event.getPlayer().sendMessage("§a§lGlobal §8⫸ §7You can only join this server in 1.9.");
 						return;
 						
 					}
@@ -198,6 +198,41 @@ public class PlayerListener implements Listener {
 					return;
 					
 					*/
+					
+				}
+				else if (event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8⫸ §b§lUHC 1 §8(§7Right-Click to join§8) §8⫷")) {
+					
+					event.setCancelled(true);
+				
+					if (serverCooldown.contains(event.getPlayer().getUniqueId())) return;
+					serverCooldown.add(event.getPlayer().getUniqueId());
+					
+					new BukkitRunnable() {
+						
+						public void run() {
+							
+							if (serverCooldown.contains(event.getPlayer().getUniqueId())) serverCooldown.remove(event.getPlayer().getUniqueId());
+							
+						}
+						
+					}.runTaskLater(Main.hub, 60);
+					
+					event.getPlayer().playSound(event.getPlayer().getLocation(), Sound.ORB_PICKUP, 1, 1);
+					
+					if (ViaVersion.getInstance().isPorted(event.getPlayer().getUniqueId())) {
+						
+						event.getPlayer().sendMessage("§a§lGlobal §8⫸ §7You can only join this server in 1.8.");
+						return;
+						
+					}
+					
+					ByteArrayDataOutput out = ByteStreams.newDataOutput();
+					
+					out.writeUTF("Connect");
+					out.writeUTF("uhc");
+					
+					event.getPlayer().sendPluginMessage(Main.hub, "BungeeCord", out.toByteArray());
+					return;
 					
 				}
 				else if (event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8⫸ §6§lSettings §8(§7Right-Click to open§8) §8⫷")) {
