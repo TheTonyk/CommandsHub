@@ -1,4 +1,7 @@
 # CommandsHub
+
+## **Deprectated project, newer version: [Hub](https://github.com/TheTonyk/Hub)**
+
 Minecraft Server Hub Plugin for CommandsPVP Minecraft Server. Using the Spigot API.
 
 This plugin is a private plugin and can only be used on CommandsPVP Minecraft Server. 
